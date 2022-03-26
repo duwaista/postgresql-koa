@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+		"migrate": "knex migrate:latest --esm",
+		"unmigrate": "knex migrate:rollback --esm",
+		"seed": "knex seed:run --esm"
   },
   "author": "",
   "license": "ISC",

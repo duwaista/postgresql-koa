@@ -20,3 +20,29 @@
 #### Запуск Seed:
 ``` npm run seed ```
 
+#### Пример файла миграции:
+```js
+
+export const up = async (knex) => {
+  await knex.schema.createTable("<имя_таблицы>", table => {
+    table.increments();
+    table.string("<название_поля>").notNullable();
+  });
+}
+
+export const down = async (knex) => {
+  await knex.schema.dropTableIfExists("<имя_таблицы>");
+}
+```
+
+#### Пример сида:
+```js
+
+export const seed = async (knex) => {
+  await knex('<имя_таблицы>').del();
+  await knex('<имя_таблицы>').insert({
+    <название_поля>: ''
+  });
+}
+
+```

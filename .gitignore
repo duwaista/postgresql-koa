@@ -2,7 +2,8 @@
 node_modules
 /dist
 /.firebase
-/db
+/db/migrations/*
+/db/seeds/*
 .firebaserc
 
 # local env files

@@ -16,9 +16,12 @@ class feedServices {
 	}
 
 	static async createFeedPost(post) {
-		await knex('feed').insert({
+		const data = await knex('feed')
+		.returning('id')
+		.insert({
 			...post,
 		});
+		return data;
 	}
 };
 

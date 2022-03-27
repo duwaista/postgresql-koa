@@ -9,8 +9,9 @@ router.get('/api/feed', async (ctx) => {
 });
 
 router.post('/api/feed', async (ctx) => {
-	const post = ctx.request.data;
-	await feedServices.createFeedPost(post);
+	const post = ctx.request.body;
+	const response = await feedServices.createFeedPost(post);
+	ctx.body = response;
 });
 
 router.get('/api/feed/:id', async (ctx) => {

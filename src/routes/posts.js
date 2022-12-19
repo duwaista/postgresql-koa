@@ -26,4 +26,12 @@ router.delete('/:id', async (ctx) => {
 	ctx.body = post;
 });
 
+router.patch('/:id', async (ctx) => {
+	const id = ctx.params.id;
+	const data = ctx.request.body;
+
+	const updatedPost = await postsServices.updatePost({ id, data });
+	ctx.body = updatedPost;
+});
+
 export default router;
